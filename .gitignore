@@ -1,0 +1,5 @@
+design.txt
+.DS_Store
+app/dist/node_modules/
+app/ui/node_modules/
+app/dist/
