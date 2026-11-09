@@ -1,10 +1,8 @@
-import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/node-postgres';
 import express, { type Express, type Request, type Response } from 'express';
-import { usersTable } from './db/schema';
+import { db } from "./db"
+import { usersTable } from "./db/schema"
 
 const app: Express = express();
-const db = drizzle(process.env.DATABASE_URL!);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('test route');
