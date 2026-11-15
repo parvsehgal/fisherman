@@ -5,5 +5,4 @@ ui/node_modules/
 app/dist/
 app/.env
 app/node_modules
-app/db/drizzle/
 todo.txt

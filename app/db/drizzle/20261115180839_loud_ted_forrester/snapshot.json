@@ -1,0 +1,47 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "fd48dd62-1467-4023-bddd-be966ccffac6",
+  "prevIds": [
+    "69e03795-cff4-4d2e-9d70-1c2fe54be181"
+  ],
+  "footprints": [
+    {
+      "statementType": "add_unique",
+      "statementTarget": [
+        "table",
+        "public",
+        "clients"
+      ],
+      "writes": [
+        "s|uq|public.clients.clients_name_key",
+        "n|uq|public.clients.clients_name_key",
+        "e|uq|public.clients.clients_name_key",
+        "n|con|public.clients.clients_name_key",
+        "n|rel|public.clients_name_key"
+      ],
+      "reads": [
+        "n|tbl|public.clients",
+        "n|sch|public",
+        "n|col|public.clients.name"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "clients",
+        "name": "clients_name_key",
+        "nameExplicit": false,
+        "columns": [
+          "name"
+        ],
+        "nullsNotDistinct": false,
+        "entityType": "uniques"
+      }
+    }
+  ]
+}
