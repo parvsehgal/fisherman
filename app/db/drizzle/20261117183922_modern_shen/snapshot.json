@@ -1,0 +1,72 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "8197be11-8215-458b-aed1-321844a63c85",
+  "prevIds": [
+    "fd48dd62-1467-4023-bddd-be966ccffac6"
+  ],
+  "footprints": [
+    {
+      "statementType": "add_pk",
+      "statementTarget": [
+        "table",
+        "public",
+        "clients"
+      ],
+      "writes": [
+        "s|pk|public.clients",
+        "n|pk|public.clients",
+        "e|pk|public.clients",
+        "n|con|public.clients.clients_pkey",
+        "n|rel|public.clients_pkey"
+      ],
+      "reads": [
+        "n|tbl|public.clients",
+        "n|sch|public",
+        "n|col|public.clients.id"
+      ]
+    },
+    {
+      "statementType": "alter_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "clients",
+        "id"
+      ],
+      "writes": [
+        "s|colprop|public.clients.id.default"
+      ],
+      "reads": [
+        "n|tbl|public.clients",
+        "n|sch|public",
+        "n|col|public.clients.id"
+      ],
+      "sqlHash": "bdd2d4e96b2f258a"
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "clients",
+        "name": "clients_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "alter",
+      "key": "columns\u0000[\"public\",\"clients\",\"id\"]",
+      "set": {
+        "notNull": true,
+        "default": "gen_random_uuid()"
+      }
+    }
+  ]
+}

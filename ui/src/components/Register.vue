@@ -35,13 +35,16 @@ async function handleSubmit() {
     const res = await fetch("http://localhost:3000/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials:'include',
       body: JSON.stringify({ username:username.value, email: email.value, password: password.value }),
     });
-
+    console.log(res)
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       throw new Error(data.message || "Could not create your account.");
-    }
+    }else{ // the response is valid so redirect to dashboard
+      //todo redirect to dashboard
+     }
   } catch (err) {
     error.value = err.message;
   } finally {
