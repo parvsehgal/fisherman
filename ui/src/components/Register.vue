@@ -42,8 +42,9 @@ async function handleSubmit() {
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       throw new Error(data.message || "Could not create your account.");
-    }else{ // the response is valid so redirect to dashboard
+    }else{ // the response is valid and cookie is set so redirect to dashboard
       //todo redirect to dashboard
+      
      }
   } catch (err) {
     error.value = err.message;
