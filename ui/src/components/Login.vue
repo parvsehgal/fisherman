@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from "vue";
+import { useRoute, useRouter } from 'vue-router'
 
+const router = useRouter()
+const route = useRoute()
 const email = ref("");
+
 const password = ref("");
 const error = ref("");
 const loading = ref(false);
@@ -28,7 +32,7 @@ async function handleSubmit() {
     } else {
       // the response is valid so redirect to dashboard
       //todo redirect to dashboard
-      router.push('/dashboard');
+      router.push('/dashboard')
     }
   } catch (err) {
     error.value = err.message;

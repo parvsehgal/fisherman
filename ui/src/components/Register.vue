@@ -1,5 +1,9 @@
 <script setup>
 import { ref } from "vue";
+import { useRoute, useRouter } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
 
 const  username = ref("");
 const email = ref("");
@@ -44,7 +48,7 @@ async function handleSubmit() {
       throw new Error(data.message || "Could not create your account.");
     }else{ // the response is valid and cookie is set so redirect to dashboard
       //todo redirect to dashboard
-      
+      router.push('/dashboard')
      }
   } catch (err) {
     error.value = err.message;
