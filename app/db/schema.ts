@@ -18,7 +18,8 @@ export const webhooksTable = pgTable("webhooks", {
   clientId: uuid('client_id').notNull().references(() => clientsTable.id, { onDelete: "cascade" }),
   webhookUrl: text().notNull().unique(),
   enabled: boolean().notNull().default(true),
-  eventsSubscribed: uuid().array().notNull().default([]), //this will have event Ids
+  eventsSubscribed: uuid().array().notNull().default([]), //this will have event Ids //need id check in API itself
+  secrect: uuid().notNull().defaultRandom(),
   description: text(),
   createdAt: timestamp().notNull().defaultNow(),
 });

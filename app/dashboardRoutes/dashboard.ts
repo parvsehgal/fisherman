@@ -1,12 +1,23 @@
 import express, { type Request, type Response } from 'express';
+import { error } from 'node:console';
 const router = express.Router();
 
-router.get('/health', (req: Request, res: Response) => {
-  console.log('here')
-  res.status(200).json({
-    success: true,
-    message: "if here then user is logged in and can proceed with the dashboard view"
-  })
+export interface AuthedRequest extends Request {
+  client?: { id: string; username: string; email: string };
+}
+
+router.get('/health', (req: AuthedRequest, res: Response) => {
+  try {
+    console.log('here')
+    if (!req.client) throw new Error("client obj not present")
+    res.status(200).json({
+      success: true,
+      message: "if here then user is logged in and can proceed with the dashboard view",
+      client: req.client
+    })
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 export default router;
